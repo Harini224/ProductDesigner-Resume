@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sushwanth Dhanisetty — Product Designer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,500;1,600&family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #f7f6f1;
+    --panel-line: #ddd8cc;
+    --ink: #14181b;
+    --ink-soft: #4a4a46;
+    --sub-italic: #5c5c56;
+    --grey-label: #8a8a82;
+    --teal: #6a867c;
+    --teal2: #276b5a; 
+    --teal-tag-bg: #dcece5;
+    --teal-tag-bg-strong: #d3ebe1;
+    --highlight-bg: #d9efe6;
+    --highlight-ink: #2f6b5e;
+    --amber: #b8813f;
+    --tool-border: #d8d3c5;
+    --tool-bg: #fbfaf6;
+    --link: #2f6b5e;
+    --rule: #d8d3c5;
+  }
+
+  *{ box-sizing: border-box; }
+
+  body{
+    margin:0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .sheet{
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 64px 40px 80px;
+  }
+
+  .mono{
+    font-family: 'JetBrains Mono', 'Courier New', monospace;
+  }
+
+  .serif{
+    font-family: 'Playfair Display', Georgia, serif;
+  }
+
+  /* ---------- Header ---------- */
+
+  .eyebrow{
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11.5px;
+    letter-spacing: 0.14em;
+    color: var(--teal);
+    font-weight: 500;
+    margin-bottom: 18px;
+  }
+
+  h1.name{
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 56px;
+    line-height: 1.05;
+    margin: 0 0 22px 0;
+    color: var(--ink);
+    letter-spacing: -0.5px;
+  }
+
+  .tagline{
+    font-family: serif;
+    font-style: italic;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 1.45;
+    color: var(--sub-italic);
+    max-width: 600px;
+    margin: 0 0 28px 0;
+  }
+
+  .contact-row{
+    display:flex;
+    flex-wrap: wrap;
+    align-items:center;
+    gap: 10px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12.5px;
+    color: var(--ink-soft);
+    margin-bottom: 34px;
+  }
+
+  .contact-row .sep{
+    color: var(--rule);
+  }
+
+  .contact-row a{
+    color: var(--link);
+    text-decoration: none;
+  }
+  .contact-row a:hover{ text-decoration: underline; }
+
+  .hr{
+    border: none;
+    border-top: 1px solid var(--rule);
+    margin: 0;
+  }
+
+  /* ---------- Stats ---------- */
+
+  .stats{
+    display:grid;
+    grid-template-columns: repeat(4, 1fr);
+    padding: 32px 20px;
+  }
+
+  .stat{
+    padding: 0 28px;
+    border-left: 1px solid var(--rule);
+  }
+  .stat:first-child{ border-left: none; padding-left: 0; }
+
+  .stat-num{
+    /* font-family: 'JetBrains Mono', monospace; */
+    font-weight: 500;
+    font-size: 23px;
+    color: var(--teal2);
+    margin-bottom: 6px;
+  }
+
+  .stat-label{
+    font-size: 12.5px;
+    color: var(--ink-soft);
+  }
+
+  .stats-row2{
+    display:grid;
+    grid-template-columns: repeat(3, 1fr);
+    padding: 4px 20px 32px;
+  }
+
+  /* ---------- Section headers ---------- */
+
+  .section{
+    margin-top: 54px;
+  }
+
+  .section-head{
+    display:flex;
+    align-items: baseline;
+    gap: 16px;
+    margin-bottom: 26px;
+  }
+
+  .section-num{
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    color: var(--grey-label);
+    min-width: 18px;
+  }
+
+  .section-title{
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 26px;
+    color: var(--ink);
+    white-space: nowrap;
+  }
+
+  .section-rule{
+    flex: 1;
+    height: 1px;
+    background: var(--rule);
+    align-self: center;
+  }
+
+  /* ---------- Summary ---------- */
+
+  .summary-text{
+    font-size: 15px;
+    line-height: 1.75;
+    color: #2b2b28;
+    max-width: 800px;
+  }
+
+  .pill-inline{
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 14.5px;
+    color: var(--teal2);
+    background: var(--teal-tag-bg-strong);
+    padding: 3px 8px;
+    border-radius: 4px;
+    white-space: nowrap;
+  }
+
+  /* ---------- Skills ---------- */
+
+  .skills-cols{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+  }
+
+  .skills-group{
+    margin-bottom: 26px;
+  }
+
+  .skills-heading{
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    color: var(--teal2);
+    margin-bottom: 14px;
+  }
+
+  .tag-wrap{
+    display:flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .tag{
+    font-size: 13px;
+    padding: 9px 16px;
+    border-radius: 6px;
+    border: 1px solid var(--tool-border);
+    background: var(--tool-bg);
+    color: var(--ink);
+    line-height: 1.2;
+  }
+
+  .tag.accent{
+    background: var(--teal-tag-bg);
+    border-color: var(--teal-tag-bg);
+    color: #1f4e44;
+    font-weight: 500;
+  }
+
+  /* ---------- Experience ---------- */
+
+  .job-title{
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 22px;
+    margin: 0;
+  }
+
+  .job-header{
+    display:flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .job-date{
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 14px;
+    color: var(--grey-label);
+    white-space: nowrap;
+  }
+
+  .job-sub{
+    color: var(--ink-soft);
+    font-size: 15.5px;
+    margin: 6px 0 20px 0;
+  }
+
+  ul.job-list{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  ul.job-list li{
+    position: relative;
+    padding-left: 22px;
+    margin-bottom: 16px;
+    font-size: 16px;
+    line-height: 1.65;
+    color: #2b2b28;
+  }
+
+  ul.job-list li::before{
+    content: "—";
+    position: absolute;
+    left: 0;
+    color: var(--amber);
+  }
+
+  .hl{
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 14.5px;
+    background: var(--highlight-bg);
+    color: var(--highlight-ink);
+    padding: 2px 7px;
+    border-radius: 4px;
+    font-weight: 600;
+  }
+
+  /* ---------- Projects ---------- */
+
+  .project{
+    padding: 26px 0;
+    border-top: 1px solid var(--rule);
+  }
+  .project:first-child{ border-top: none; padding-top: 0; }
+
+  .project-header{
+    display:flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 12px;
+  }
+
+  .project-title{
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 21px;
+    margin: 0;
+  }
+
+  .project-tags{
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12.5px;
+    letter-spacing: 0.05em;
+    color: var(--amber);
+    white-space: nowrap;
+  }
+
+  .project p{
+    font-size: 15.5px;
+    line-height: 1.7;
+    color: #2b2b28;
+    margin: 0 0 12px 0;
+  }
+  .project p:last-child{ margin-bottom: 0; }
+
+  /* ---------- Independent project / Education ---------- */
+
+  .simple-entry{
+    border: none;
+  }
+
+  .entry-header{
+    display:flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 8px;
+  }
+
+  .entry-title{
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 21px;
+    margin: 0;
+  }
+
+  .entry-date{
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13.5px;
+    color: var(--grey-label);
+    white-space: nowrap;
+  }
+
+  .entry-body{
+    font-size: 15.5px;
+    line-height: 1.7;
+    color: #2b2b28;
+    margin: 0;
+    max-width: 780px;
+  }
+
+  .divider-line{
+    border-top: 1px solid var(--rule);
+    margin-top: 26px;
+  }
+
+  .edu-sub{
+    color: var(--ink-soft);
+    font-size: 15px;
+    margin-top: 4px;
+  }
+
+  /* ---------- Certifications / Languages ---------- */
+
+  .cert-grid{
+    display:flex;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .cert-tag{
+    font-size: 14px;
+    padding: 11px 18px;
+    border-radius: 6px;
+    border: 1px solid var(--tool-border);
+    background: var(--tool-bg);
+    color: var(--ink);
+  }
+
+  .cert-tag .pursuing{
+    color: var(--grey-label);
+    font-size: 14px;
+  }
+
+  .lang-row{
+    display:flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    font-size: 16px;
+  }
+
+  .lang-row strong{
+    font-weight: 700;
+    color: var(--ink);
+  }
+
+  .lang-row .level{
+    color: var(--grey-label);
+    font-weight: 400;
+  }
+
+  /* ---------- Footer ---------- */
+
+  .footer{
+    margin-top: 60px;
+    padding-top: 22px;
+    border-top: 1px solid var(--rule);
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    color: var(--grey-label);
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  @media (max-width: 720px){
+    .sheet{ padding: 40px 20px 60px; }
+    h1.name{ font-size: 40px; }
+    .tagline{ font-size: 19px; }
+    .stats, .stats-row2{ grid-template-columns: repeat(2, 1fr); row-gap: 24px; }
+    .stat{ border-left: none; padding-left: 0; }
+    .skills-cols{ grid-template-columns: 1fr; }
+    .section-title{ font-size: 26px; }
+    .job-header, .project-header, .entry-header{ flex-direction: column; align-items: flex-start; }
+  }
+  @media (max-width: 480px){
+  
+    .stats, .stats-row2{ grid-template-columns: repeat(1, 1fr); row-gap: 24px; }
+    .stat{ border-left: none; padding-left: 0; }
+  }
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <!-- ================= HEADER ================= -->
+  <div class="eyebrow">PRODUCT DESIGNER · AI-NATIVE WORKFLOWS</div>
+  <h1 class="name">Sushwanth Dhanisetty</h1>
+  <p class="tagline">Designing human–AI interaction across FinTech, Web3, Healthcare &amp; SaaS — where complex systems need to feel obvious.</p>
+
+  <div class="contact-row">
+    <a href="mailto:dsushwanth@gmail.com">dsushwanth@gmail.com</a>
+    <span class="sep">|</span>
+    <span>+91 93465 52742</span>
+    <span class="sep">|</span>
+    <span>India · Dubai</span>
+    <span class="sep">|</span>
+    <a href="#">LinkedIn</a>
+    <span class="sep">|</span>
+    <a href="#">Portfolio</a>
+  </div>
+
+  <hr class="hr">
+
+  <!-- ================= STATS ================= -->
+  <div class="stats">
+    <div class="stat">
+      <div class="stat-num">4+ yrs</div>
+      <div class="stat-label">product design</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">13</div>
+      <div class="stat-label">modules shipped</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">68%</div>
+      <div class="stat-label">retention lift, FABC</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">10x</div>
+      <div class="stat-label">subs growth, Skilleareum</div>
+    </div>
+  </div>
+  <div class="stats-row2">
+    <div class="stat">
+      <div class="stat-num">6</div>
+      <div class="stat-label">domains: AI/FinTech/Web3+</div>
+    </div>
+  </div>
+
+  <hr class="hr">
+
+  <!-- ================= 01 SUMMARY ================= -->
+  <div class="section">
+    <div class="section-head">
+      <span class="section-num mono">01</span>
+      <span class="section-title">Summary</span>
+      <span class="section-rule"></span>
+    </div>
+    <p class="summary-text">
+      AI Product Designer with <strong>4+ years</strong> designing end-to-end web and mobile products across AI, SaaS, FinTech, Web3, Healthcare, and EdTech, for B2B and B2C audiences. Specialized in AI-powered and LLM-driven experiences — conversational interfaces, AI-personalized recommendation flows, and human-AI interaction patterns — layered on core UX craft: research, information architecture, wireframing, prototyping, design systems, and usability testing. Hands-on with AI-native design workflows using <span class="pill-inline">Figma Make</span>, <span class="pill-inline">Claude Code</span>, and <span class="pill-inline">Google Stitch</span>. Led design across 13 product modules at a Dubai-based deep-tech startup, turning complex AI, business, and technical requirements into intuitive, measurable experiences that improved retention, conversion, and trust.
+    </p>
+  </div>
+
+  <!-- ================= 02 CORE SKILLS ================= -->
+  <div class="section">
+    <div class="section-head">
+      <span class="section-num mono">02</span>
+      <span class="section-title">Core Skills</span>
+      <span class="section-rule"></span>
+    </div>
+
+    <div class="skills-cols">
+      <div>
+        <div class="skills-group">
+          <div class="skills-heading">AI PRODUCT &amp; AI-NATIVE DESIGN</div>
+          <div class="tag-wrap">
+            <span class="tag accent">Generative AI product design</span>
+            <span class="tag accent">LLM interaction design</span>
+            <span class="tag accent">Conversational UX</span>
+            <span class="tag accent">AI-personalized recommendation flows</span>
+            <span class="tag accent">Human-AI interaction design</span>
+            <span class="tag accent">Prompt-driven prototyping</span>
+          </div>
+        </div>
+
+        <div class="skills-group">
+          <div class="skills-heading">DESIGN TOOLS</div>
+          <div class="tag-wrap">
+            <span class="tag">Figma</span>
+            <span class="tag">Figma Make</span>
+            <span class="tag">Framer</span>
+            <span class="tag">Claude Code</span>
+            <span class="tag">Google Stitch</span>
+            <span class="tag">Adobe CS</span>
+            <span class="tag">Sketch</span>
+            <span class="tag">Recraft.AI</span>
+            <span class="tag">Miro</span>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="skills-group">
+          <div class="skills-heading">UX &amp; PRODUCT DESIGN</div>
+          <div class="tag-wrap">
+            <span class="tag">End-to-end product design</span>
+            <span class="tag">User research</span>
+            <span class="tag">Information architecture</span>
+            <span class="tag">Wireframing</span>
+            <span class="tag">Hi-fi prototyping</span>
+            <span class="tag">Usability testing</span>
+            <span class="tag">A/B testing</span>
+            <span class="tag">WCAG 2.1</span>
+            <span class="tag">Design systems</span>
+          </div>
+        </div>
+
+        <div class="skills-group">
+          <div class="skills-heading">RESEARCH &amp; PROCESS</div>
+          <div class="tag-wrap">
+            <span class="tag">Funnel analysis</span>
+            <span class="tag">Mixpanel</span>
+            <span class="tag">Google Analytics</span>
+            <span class="tag">Agile/Scrum</span>
+            <span class="tag">Design-to-dev handoff</span>
+            <span class="tag">OKR-aligned strategy</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= 03 EXPERIENCE ================= -->
+  <div class="section">
+    <div class="section-head">
+      <span class="section-num mono">03</span>
+      <span class="section-title">Experience</span>
+      <span class="section-rule"></span>
+    </div>
+
+    <div class="job-header">
+      <h3 class="job-title">Product Designer, FABC Labs</h3>
+      <span class="job-date">May 2023 — Present · Dubai, UAE</span>
+    </div>
+    <div class="job-sub">Dubai-based deep-tech &amp; emerging technology startup</div>
+
+    <ul class="job-list">
+      <li>Led end-to-end UI/UX design across <strong>13 product modules</strong> spanning AI, SaaS, FinTech, Web3, Healthcare, and EdTech, for B2B and B2C users — independently owned the full design process for 8 products and partnered with a cross-functional design team on the remaining 5.</li>
+      <li>Conducted user research, usability testing, and stakeholder feedback sessions to identify pain points, validate decisions, and continuously improve experiences against user needs and business goals.</li>
+      <li>Improved user retention by <span class="hl">68%</span> through A/B testing, usability improvements, and data-driven decisions, using insights from Mixpanel and Google Analytics.</li>
+      <li>Collaborated with founders, Product Managers, and Engineers during weekly design-to-development cycles, improving handoff efficiency and accelerating delivery.</li>
+      <li>Facilitated sprint planning and design reviews to align cross-functional teams on product priorities, AI-native feature direction, and design strategy.</li>
+      <li>Built interactive prototypes in Framer to validate user journeys, accelerate stakeholder alignment, and de-risk product decisions pre-development.</li>
+      <li>Built and maintained a scalable cross-product design system, evolving components and patterns as product requirements grew.</li>
+    </ul>
+
+    <!-- Projects -->
+    <div style="margin-top: 8px;">
+
+      <div class="project">
+        <div class="project-header">
+          <h4 class="project-title">Trust OS — Trust Layer for High-Risk Blockchain Transactions</h4>
+          <span class="project-tags">WEB3 · FINTECH · B2B</span>
+        </div>
+        <p>Designed the financial trust-layer UX for irreversible blockchain transactions, translating complex on-chain data into compliance-aware decision flows accessible to non-technical users.</p>
+        <p>Architected the full end-to-end decision-support experience from onboarding through execution, reducing user hesitation and improving transaction confidence via contextual risk indicators and multi-step validation flows.</p>
+      </div>
+
+      <div class="project">
+        <div class="project-header">
+          <h4 class="project-title">Skilleareum — AI-Driven Learning Platform</h4>
+          <span class="project-tags">EDTECH · B2C</span>
+        </div>
+        <p>Led UX strategy for the platform's AI-driven personalization engine using design thinking methodologies, stakeholder workshops, and iterative usability testing — owning direction from discovery through delivery.</p>
+        <p>Designed AI-personalized learning journeys and gamified engagement flows that adapted to learner behavior, driving a <span class="hl">60%</span> improvement in retention, <span class="hl">10x</span> subscription growth, and <span class="hl">6x</span> faster challenge completion.</p>
+      </div>
+
+      <div class="project">
+        <div class="project-header">
+          <h4 class="project-title">Precisya — Privacy-First Healthcare Platform</h4>
+          <span class="project-tags">HEALTHCARE · B2C</span>
+        </div>
+        <p>Identified gaps in health record ownership through user research, developing personas and journey maps to inform a granular access management system.</p>
+        <p>Reduced data access friction by <span class="hl">60%</span> through redesigned interaction flows and WCAG 2.1-compliant UI, boosting user trust scores by <span class="hl">40%</span> and health data retrieval speed by <span class="hl">2x</span>, validated through prototype testing with clinical users.</p>
+      </div>
+
+      <div class="project">
+        <div class="project-header">
+          <h4 class="project-title">Goaldex — Player Performance Analytics</h4>
+          <span class="project-tags">SPORTS TECH · B2C</span>
+        </div>
+        <p>Redesigned performance analytics UX, delivering <span class="hl">2x</span> faster player analysis and a <span class="hl">45%</span> increase in data-driven decisions among coaching staff.</p>
+        <p>Proposed and led UX direction for an NFT marketplace addition, designing fan engagement flows that created a new monetization layer beyond core analytics.</p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ================= 04 INDEPENDENT PROJECT ================= -->
+  <div class="section">
+    <div class="section-head">
+      <span class="section-num mono">04</span>
+      <span class="section-title">Independent Project</span>
+      <span class="section-rule"></span>
+    </div>
+
+    <div class="entry-header">
+      <h4 class="entry-title">Brain Engine — AI-Powered Cognitive Interface</h4>
+      <span class="entry-date">2026 · Research &amp; Prototype</span>
+    </div>
+    <p class="entry-body">Independently conceptualizing and designing an AI-powered cognitive interface to unlock human cognitive potential — exploring human-AI interaction patterns, conversational UX, and prompt-driven prototyping for next-generation AI product experiences.</p>
+  </div>
+
+  <!-- ================= 05 EDUCATION ================= -->
+  <div class="section divider-line" style="padding-top: 40px;">
+    <div class="section-head">
+      <span class="section-num mono">05</span>
+      <span class="section-title">Education</span>
+      <span class="section-rule"></span>
+    </div>
+
+    <div class="entry-header">
+      <h4 class="entry-title">B.E. / B.Tech, Computer Science Engineering</h4>
+      <span class="entry-date">2019 — 2023</span>
+    </div>
+    <div class="edu-sub">Anna University / Chennai Institute of Technology · GPA 8.0/10, First Class</div>
+  </div>
+
+  <!-- ================= 06 CERTIFICATIONS ================= -->
+  <div class="section">
+    <div class="section-head">
+      <span class="section-num mono">06</span>
+      <span class="section-title">Certifications</span>
+      <span class="section-rule"></span>
+    </div>
+    <div class="cert-grid">
+      <span class="cert-tag">Microsoft Generative AI Engineering Professional <span class="pursuing">(pursuing)</span></span>
+      <span class="cert-tag">Google Project Management <span class="pursuing">(pursuing)</span></span>
+      <span class="cert-tag">Microsoft Student Ambassador</span>
+      <span class="cert-tag">Pega System Architect</span>
+      <span class="cert-tag">Google Ads</span>
+      <span class="cert-tag">Google Product Marketing</span>
+    </div>
+  </div>
+
+  <!-- ================= 07 LANGUAGES ================= -->
+  <div class="section">
+    <div class="section-head">
+      <span class="section-num mono">07</span>
+      <span class="section-title">Languages</span>
+      <span class="section-rule"></span>
+    </div>
+    <div class="lang-row">
+      <strong>English</strong>
+      <strong>Telugu</strong>
+      <strong>Hindi</strong>
+      <strong>Tamil</strong>
+      <span><strong>Spanish</strong> <span class="level">· beginner</span></span>
+      <span><strong>Arabic</strong> <span class="level">· beginner</span></span>
+    </div>
+  </div>
+
+  <!-- ================= FOOTER ================= -->
+  <div class="footer">
+    <span>Sushwanth Dhanisetty — Product Designer</span>
+    <span>Updated July 2026</span>
+  </div>
+
+</div>
+</body>
+</html>
